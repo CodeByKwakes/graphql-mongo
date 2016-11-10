@@ -1,0 +1,12 @@
+{
+  "globalDependencies": {
+    "cors": "registry:dt/cors#0.0.0+20160708202709",
+    "express": "registry:dt/express#4.0.0+20160708185218",
+    "express-graphql": "registry:dt/express-graphql#0.0.0+20160626095004"
+  },
+  "globalDevDependencies": {
+    "babel-core": "registry:dt/babel-core#6.7.0+20160423062108",
+    "graphql": "registry:dt/graphql#0.7.0+20161028160137",
+    "mongoose": "registry:dt/mongoose#4.5.9+20161010180758"
+  }
+}

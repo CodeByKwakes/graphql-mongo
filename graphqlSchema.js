@@ -1,7 +1,7 @@
 import { VenueTC } from './models/venue'
 
-import { CompseStorage } from 'graphql-compose'
-const GQC = new CompseStorage()
+import {GQC} from 'graphql-compose'
+
 
 GQC.rootQuery().addFields({
   venueById: VenueTC.getResolver('findById'),

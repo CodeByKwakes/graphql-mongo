@@ -4,16 +4,18 @@ import graphqlHTTP from 'express-graphql';
 import mongoose from 'mongoose';
 import graphqlSchema from './graphqlSchema'
 
-const server = express()
-server.use(cors())
+const GRAPHQL_PORT = 8080;
+const graphQLServer = express()
+graphQLServer.use(cors())
 
-server.use('/spont', graphqlHTTP(req => ({
-  schema: graphqlSchema,
-  pretty: true
-})));
+graphQLServer.use('/spont', graphqlHTTP({
+  graphiql: true,
+  pretty: true,
+  schema: [graphqlSchema]
+}));
 
 mongoose.connect('mongodb://localhost/spontDB');
 
-server.listen(8080, () => {
-  console.log('Listening at port', server.address().port)
-})
+graphQLServer.listen(GRAPHQL_PORT, () => console.log(
+  `GraphQL Server is now running on http://localhost:${GRAPHQL_PORT}/spont`
+));
