@@ -23,3 +23,4 @@ GQC.rootMutation().addFields({
 })
 
 export const graphqlSchema = GQC.buildSchema();
+export default graphqlSchema

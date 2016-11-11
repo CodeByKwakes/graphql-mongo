@@ -11,7 +11,7 @@ graphQLServer.use(cors())
 graphQLServer.use('/spont', graphqlHTTP({
   graphiql: true,
   pretty: true,
-  schema: [graphqlSchema]
+  schema: graphqlSchema
 }));
 
 mongoose.connect('mongodb://localhost/spontDB');
