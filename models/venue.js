@@ -1,9 +1,17 @@
 import mongoose from 'mongoose'
 import composeWithMongoose from 'graphql-compose-mongoose'
 
-import {EventTC} from './event'
+import { EventTC } from './event'
 
 export const VenueSchema = new mongoose.Schema({
+  venueID: {
+    type: Number,
+    description: 'ID of Venue of the event'
+  },
+   eventID: {
+    type: [Number],
+    description: 'ID of events'
+  },
   name: String,
   description: String,
   venueType: [String],
@@ -14,10 +22,6 @@ export const VenueSchema = new mongoose.Schema({
   website: String,
   email: [String],
   musicGenre: [String],
-  eventID: {
-    type: Number,
-    description: 'ID of events of the venue'
-  } 
 })
 
 export const VenueModel = mongoose.model('Venue', VenueSchema)
@@ -28,7 +32,7 @@ VenueTC.addRelation(
   () => ({
     resolver: EventTC.getResolver('findMany'),
     args: {
-      filter: (source) => ({ eventID: source.eventID}),
+      filter: (source) => ({ eventID: source.eventID }),
       skip: null,
       sort: null,
     },
